@@ -1,4 +1,6 @@
 # Laddu Notion
+Create a quick CRUD API service and Swagger API playground for your notion database.
+Good for building internal dashboards, mock api servers, 3rd party webhook integrations.
 
 ## How to setup?
 ### Step 1: Create Notion Integration
