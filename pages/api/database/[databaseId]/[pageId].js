@@ -1,6 +1,7 @@
 import { updateRow, deleteRow } from "../../../../lib/notion";
 
-export default async (req, res) => {
+
+const NotionPageCrud = async (req, res) => {
     const {
         method, query
     } = req
@@ -29,3 +30,6 @@ export default async (req, res) => {
     }
 
 };
+
+
+export default NotionPageCrud;

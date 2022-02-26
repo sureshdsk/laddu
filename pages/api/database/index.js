@@ -1,7 +1,7 @@
 import { getAllDatabase } from "../../../lib/notion";
 
 
-export default async (req, res) => {
+const NotionDbApi = async (req, res) => {
   const databases = await getAllDatabase()
   if (databases.length == 0) {
     res.status(404);
@@ -17,3 +17,6 @@ export default async (req, res) => {
   res.status(200);
   res.json({ data: tableList, status: "ok" });
 };
+
+
+export default NotionDbApi;
