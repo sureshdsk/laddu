@@ -8,27 +8,11 @@
   # default ignore command
   # ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ."  
 
-[build.environment]
-  # cache Cypress binary in local "node_modules" folder
-  # so Netlify caches it
-  CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
-  # set TERM variable for terminal output
-  TERM = "xterm"
-
 
 [[plugins]]
 # netlify nextjs plugin that helps nextjs ISR and SSR and API routes, etc
 package = "@netlify/plugin-nextjs" 
 
-[[plugins]]
-# cypress plugin for netlify
-package = "netlify-plugin-cypress"
-  [plugins.inputs]
-    # skip the default tests before the deploy
-    skip = true
-  [plugins.inputs.onSuccess]
-    # run tests after the deploy
-    enable = true
 
 [template.environment]
   NOTION_SECRET_KEY = "Enter your notion secret token"
