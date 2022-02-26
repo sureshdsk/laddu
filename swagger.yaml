@@ -1,0 +1,172 @@
+openapi: 3.0.0
+info:
+  title: Laddu Notion
+  version: 1.0.0
+servers:
+  - url: /
+  - url: localhost:3000
+paths:
+  /api/database:
+    get:
+      summary: list database
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: "array"
+                    items:
+                      $ref: "#/definitions/Database"
+                  message:
+                    type: "string"
+                    example: "ok"
+
+  /api/database/{database_id}:
+    parameters:
+      - name: database_id
+        in: path
+        description: database_id from notion
+        required: true
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: get data from a database
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: "array"
+                    items:
+                      $ref: "#/definitions/Page"
+                  message:
+                    type: "string"
+                    example: "ok"
+    put:
+      summary: create row
+      requestBody:
+        $ref: "#/components/requestBodies/NewPageBody"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+
+  /api/database/{database_id}/{page_id}:
+    parameters:
+      - name: database_id
+        in: path
+        description: database_id from notion
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: page_id
+        in: path
+        description: page_id from notion
+        required: true
+        schema:
+          type: string
+          format: uuid
+    patch:
+      summary: update row
+      requestBody:
+        $ref: "#/components/requestBodies/NewPageBody"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - default
+      summary: delete row
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+definitions:
+  Database:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "uuid"
+      title:
+        type: "string"
+        format: "string"
+  Page:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        format: "uuid"
+      createdTime:
+        type: "string"
+        format: "date-time"
+      lastEditedTime:
+        type: "string"
+        format: "date-time"
+      StrCol:
+        type: "string"
+        format: "string"
+      SelectCol:
+        type: "string"
+        format: "string"
+      BooleanCol:
+        type: "boolean"
+        format: "boolean"
+      NumberCol:
+        type: "integer"
+        format: "integer"
+      DatetimeCol:
+        type: "string"
+        format: "date-time"
+      MultiSelectCol:
+        type: "array"
+        items:
+          ColStr:
+            type: "string"
+            format: "string"
+  NewPage:
+    type: "object"
+    properties:
+      StrCol:
+        type: "string"
+        format: "string"
+      SelectCol:
+        type: "string"
+        format: "string"
+      BooleanCol:
+        type: "boolean"
+        format: "boolean"
+      NumberCol:
+        type: "integer"
+        format: "integer"
+      DatetimeCol:
+        type: "string"
+        format: "date-time"
+      MultiSelectCol:
+        type: "array"
+        items:
+          ColStr:
+            type: "string"
+            format: "string"
+components:
+  requestBodies:
+    NewPageBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/definitions/NewPage"

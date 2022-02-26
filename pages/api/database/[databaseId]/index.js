@@ -12,7 +12,13 @@ export default async (req, res) => {
             const pages = await getAllRows(databaseId)
             console.log(pages)
             const rows = pages.map((p) => {
-                return p.object
+                console.log(p.object);
+                return {
+                    id: p.object.id,
+                    createdTime: p.object.createdTime,
+                    lastEditedTime: p.object.lastEditedTime,
+                    ...p.object.properties
+                }
             })
 
             res.status(200);
