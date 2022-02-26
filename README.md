@@ -10,5 +10,8 @@ Good for building internal dashboards, mock api servers, 3rd party webhook integ
 - Click submit
 - Copy "Internal Integration Token" 
 
-### Setup 2: Deploy in Netlify
+### Step 2: Share database
+- Share your databases with the notion integration
+
+### Setup 3: Deploy in Netlify
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sureshdsk/laddu)
