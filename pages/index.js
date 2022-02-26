@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Head from 'next/head'
+import Head from 'next/head';
 import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@heroicons/react/outline'
 
 
@@ -49,11 +49,21 @@ const Index = () => (
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
                   <a
-                    href="#how-to"
+                    href="https://github.com/sureshdsk/laddu"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                   >
                     Get started
                   </a>
+                </div>
+
+                <div className="mt-3 sm:mt-0 sm:ml-3">
+                  <Link href={"/api-docs"}>
+                    <a
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
+                    >
+                      Swagger UI Demo
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -90,17 +100,6 @@ const Index = () => (
       </div>
     </div>
 
-
-    <div className="container mx-auto py-12 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="">
-          <h2 id="how-to" className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl ">How to setup?</h2>
-          <p className="mt-4 text-xl text-gray-500 lg:mx-auto">
-            Clone the github repository -> Enter the secret key for your Notion Integration -> Share database to the Notion Integration -> Deploy
-          </p>
-        </div>
-      </div>
-    </div>
   </>
 );
 
