@@ -13,6 +13,5 @@
 # netlify nextjs plugin that helps nextjs ISR and SSR and API routes, etc
 package = "@netlify/plugin-nextjs" 
 
-
 [template.environment]
   NOTION_SECRET_KEY = "Enter your notion secret token"
