@@ -11,6 +11,8 @@
 [[plugins]]
 # netlify nextjs plugin that helps nextjs ISR and SSR and API routes, etc
 package = "@netlify/plugin-nextjs" 
+
+[[plugins]]
 # cypress plugin for netlify
 package = "netlify-plugin-cypress"
 
