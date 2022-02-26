@@ -21,9 +21,26 @@ paths:
                     type: "array"
                     items:
                       $ref: "#/definitions/Database"
-                  message:
+                  status:
                     type: "string"
                     example: "ok"
+        "404":
+          description: error when no database is shared to the intergration.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: "array"
+                    items:
+                      type: string
+                  status:
+                    type: "string"
+                    example: "error"
+                  message:
+                    type: "string"
+                    example: "error no tables found. please check if database is shared to the integration"
 
   /api/database/{database_id}:
     parameters:
@@ -51,6 +68,24 @@ paths:
                   message:
                     type: "string"
                     example: "ok"
+        "404":
+          description: error when no database id not found in database
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: "array"
+                    items:
+                      type: string
+                  status:
+                    type: "string"
+                    example: "error"
+                  message:
+                    type: "string"
+                    example: "database not found"
+
     put:
       summary: create row
       requestBody:
